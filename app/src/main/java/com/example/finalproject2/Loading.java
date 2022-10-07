@@ -29,7 +29,7 @@ public class Loading extends Animation {
         textView.setText((int)value + " %") ;
 
         if (value == to){
-            context.startActivity(new Intent(context,LoginScreen.class));
+            context.startActivity(new Intent(context, MainScreen.class));
         }
     }
 }

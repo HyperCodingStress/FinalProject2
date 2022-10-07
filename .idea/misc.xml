@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen.xml" value="0.11296859169199595" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen.xml" value="0.2" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen_admin.xml" value="0.23229166666666667" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen_staff.xml" value="0.21822916666666667" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_main.xml" value="0.21822916666666667" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_main_screen.xml" value="0.2" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_register_screen_staff.xml" value="0.23229166666666667" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_register_screen_user.xml" value="0.176" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_register_screen_user2.xml" value="0.11296859169199595" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/content_register_screen_user.xml" value="0.72" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/fragment_first.xml" value="0.11296859169199595" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/fragment_second.xml" value="0.2" />
       </map>
     </option>
   </component>
