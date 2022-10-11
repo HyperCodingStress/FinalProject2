@@ -9,76 +9,49 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainScreen extends AppCompatActivity {
-    TextView admin,staff,about;
-    Button user,register;
+public class MainScreen extends AppCompatActivity implements View.OnClickListener{
+    TextView Admin,Staff,About;
+    Button Login,Register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-        user = findViewById(R.id.Login);
-        register = findViewById(R.id.Register);
-        admin = findViewById(R.id.Admin);
-        staff = findViewById(R.id.Staff);
-        about = findViewById(R.id.About);
-        admin.setTextColor(Color.BLUE);
-        staff.setTextColor(Color.BLUE);
-        about.setTextColor(Color.BLUE);
-
-        //button event
-        user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("Login");
-                Login();
-            }
-        });
-        register.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                System.out.println("Register");
-                Register();
-            }
-        });
-        admin.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                admin();
-            }
-        });
-        staff.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                staff();
-            }
-        });
-        about.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-//                about();
-            }
-        });
-    }
-    private void Login() {
-        Intent intent = new Intent(this, LoginScreenUser.class);
-        startActivity(intent);
-    }
-    private void Register() {
-        Intent intent = new Intent(this, RegisterScreenUser.class);
-        startActivity(intent);
-    }
-    private void admin() {
-        Intent intent = new Intent(this, LoginScreenAdmin.class);
-        startActivity(intent);
-    }
-    private void staff(){
-        Intent intent = new Intent(this, LoginScreenStaff.class);
-        startActivity(intent);
-    }
-    private void about(){
-//        Intent intent = new Intent(this, RegisterScreenUser.class);
-//        startActivity(intent);
+        //layoyt
+        Login = findViewById(R.id.Login);
+        Register = findViewById(R.id.Register);
+        Admin = findViewById(R.id.Admin);
+        Staff = findViewById(R.id.Staff);
+        About = findViewById(R.id.About);
+        // warna
+        Admin.setTextColor(Color.BLUE);
+        Staff.setTextColor(Color.BLUE);
+        About.setTextColor(Color.BLUE);
+        //event
+        Login.setOnClickListener(this);
+        Register.setOnClickListener(this);
+        Admin.setOnClickListener(this);
+        Staff.setOnClickListener(this);
+        About.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.Register:
+                startActivity(new Intent(this,RegisterScreenUser.class));
+                break;
+            case R.id.Login:
+                startActivity(new Intent(this,LoginScreenUser.class));
+                break;
+            case R.id.Staff:
+                startActivity(new Intent(this,LoginScreenStaff.class));
+                break;
+            case R.id.Admin:
+                startActivity(new Intent(this,LoginScreenAdmin.class));
+                break;
+//            case R.id.About:
+//                startActivity(new Intent(this,RegisterScreenUser.class));
+//                break;
+        }
+    }
 }
