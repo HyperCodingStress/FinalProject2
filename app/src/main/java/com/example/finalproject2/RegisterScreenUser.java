@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +19,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.concurrent.TimeUnit;
+
 public class RegisterScreenUser extends AppCompatActivity implements View.OnClickListener{
 
     private EditText name,Phone,password,email;
     private FirebaseAuth mAuth;
     private Button create;
+    private ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,10 @@ public class RegisterScreenUser extends AppCompatActivity implements View.OnClic
         password = (EditText) findViewById(R.id.password);
         email = (EditText) findViewById(R.id.Email);
         create = (Button) findViewById(R.id.create);
+        progress = (ProgressBar) findViewById(R.id.progressBar);
+        progress.setVisibility(View.GONE);
         create.setOnClickListener(this);
+
     }
 
     @Override
@@ -44,10 +51,14 @@ public class RegisterScreenUser extends AppCompatActivity implements View.OnClic
         switch(v.getId()){
             case R.id.create:
                 regiter();
-//                startActivity(new Intent(this,MainScreen.class));
-//                break;
+//
         }
     }
+
+    private void back() {
+        startActivity(new Intent(this,MainScreen.class));
+    }
+
     private void regiter() {
         String nama = name.getText().toString().trim();
         String nomor = Phone.getText().toString().trim();
@@ -99,28 +110,39 @@ public class RegisterScreenUser extends AppCompatActivity implements View.OnClic
             email.requestFocus();
             return;
         }
+
         mAuth.createUserWithEmailAndPassword(emails,pass)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progress.setVisibility(View.VISIBLE);
                         if(task.isSuccessful()){
-                            DataUser user = new DataUser(nama,nomor,emails);
+                            DataUser user = new DataUser(nama,nomor,pass,emails,"user");
+                            String uId = task.getResult().getUser().getUid();
                             FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .child(uId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
                                                 Toast.makeText(RegisterScreenUser.this,"Berhasil Mendaftar",Toast.LENGTH_SHORT).show();
+                                                progress.setVisibility(View.GONE);
+                                                try {
+                                                    Thread.sleep(1000);
+                                                    back();
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
                                             }
                                             else{
                                                 Toast.makeText(RegisterScreenUser.this,"Gagal Mendaftar",Toast.LENGTH_SHORT).show();
+                                                progress.setVisibility(View.GONE);
                                             }
                                         }
                                     });
                         }else{
                             Toast.makeText(RegisterScreenUser.this,"Gagal Mendaftar",Toast.LENGTH_LONG).show();
+                            progress.setVisibility(View.GONE);
                         }
                     }
                 });
