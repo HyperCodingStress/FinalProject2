@@ -3,11 +3,13 @@ package com.example.finalproject2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +26,6 @@ public class LoginScreenUser extends AppCompatActivity implements View.OnClickLi
     private Button button;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,33 +72,30 @@ public class LoginScreenUser extends AppCompatActivity implements View.OnClickLi
             pass.requestFocus();
             return;
         }
-        if(nomor.length() < 10){
+        if(nomor.length() < 10) {
             phone.setError("Nomor harus lebih dari 10");
             phone.requestFocus();
             return;
         }
-//        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference DatabaseReference = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference.child("Users").addValueEventListener(new ValueEventListener() {
+        DatabaseReference.child("Users").orderByChild("role").equalTo("user").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.child(nomor).exists()){
-                    if(snapshot.child(password).exists()){
-                        if(snapshot.child("role").equals("user")){
-                            System.out.println("berhasil");
-                        }
-                    }else{
-                        System.out.println("gagal");
-                    }
+                if (snapshot.child(nomor).exists()  && snapshot.child(password).exists() && snapshot.child(uid).child("role").equals("user")){
+                    Toast.makeText(LoginScreenUser.this,"Login Succes",Toast.LENGTH_SHORT).show();
+                    back();
                 }else{
-                    Toast.makeText(LoginScreenUser.this,"Data Belum Terdaftar",Toast.LENGTH_SHORT).show();;
+                    Toast.makeText(LoginScreenUser.this,"Data Belum Terdaftar",Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
+    }
+    private void back() {
+        startActivity(new Intent(this,MainActivity.class));
     }
 }
