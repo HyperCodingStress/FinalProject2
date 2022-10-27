@@ -1,5 +1,6 @@
 package com.example.finalproject2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,15 +10,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterScreenStaff extends AppCompatActivity implements View.OnClickListener {
 
     private EditText name, pass, Cpass, email;
     private FirebaseAuth mAuth;
     private Button create;
-    private ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +36,7 @@ public class RegisterScreenStaff extends AppCompatActivity implements View.OnCli
         Cpass = (EditText) findViewById(R.id.confirmPass);
         email = (EditText) findViewById(R.id.emailStaff);
         create = (Button) findViewById(R.id.RegisterStaff);
-        progress = (ProgressBar) findViewById(R.id.progressBar);
-        progress.setVisibility(View.GONE);
+//        progress = (ProgressBar) findViewById(R.id.progressBar);
         create.setOnClickListener(this);
     }
 
@@ -44,7 +48,7 @@ public class RegisterScreenStaff extends AppCompatActivity implements View.OnCli
         }
     }
     private void back() {
-        startActivity(new Intent(this,MainScreen.class));
+        startActivity(new Intent(this,LoginScreenStaff.class));
     }
     private void regiter() {
         String nama = name.getText().toString().trim();
@@ -87,5 +91,37 @@ public class RegisterScreenStaff extends AppCompatActivity implements View.OnCli
             pass.requestFocus();
             return;
         }
+        mAuth.createUserWithEmailAndPassword(emails,pass1)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if(task.isSuccessful()){
+                            DataUser user = new DataUser(nama,pass1,emails,"staff");
+                            String uId = task.getResult().getUser().getUid();
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(uId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                Toast.makeText(RegisterScreenStaff.this,"Berhasil Mendaftar",Toast.LENGTH_SHORT).show();
+                                                try {
+                                                    Thread.sleep(1000);
+                                                    back();
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                            else{
+                                                Toast.makeText(RegisterScreenStaff.this,"Gagal Mendaftar",Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                        }else{
+                            Toast.makeText(RegisterScreenStaff.this,"Gagal Mendaftar",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
     }
 }

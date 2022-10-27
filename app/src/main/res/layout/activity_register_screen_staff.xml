@@ -23,7 +23,6 @@
         android:ems="10"
         android:hint="Enter Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,17 +77,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmPass" />
-
-    <ProgressBar
-        android:id="@+id/progressBar3"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="86dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="338dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/emailStaff"
-        app:layout_constraintStart_toStartOf="@+id/emailStaff"
-        app:layout_constraintTop_toBottomOf="@+id/userStaff" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

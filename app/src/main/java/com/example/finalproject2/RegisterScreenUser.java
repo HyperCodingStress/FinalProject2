@@ -40,7 +40,7 @@ public class RegisterScreenUser extends AppCompatActivity implements View.OnClic
         password = (EditText) findViewById(R.id.password);
         email = (EditText) findViewById(R.id.Email);
         create = (Button) findViewById(R.id.create);
-        progress = (ProgressBar) findViewById(R.id.progressBar);
+        progress = (ProgressBar) findViewById(R.id.progressBarUser);
         progress.setVisibility(View.GONE);
         create.setOnClickListener(this);
 
@@ -50,6 +50,7 @@ public class RegisterScreenUser extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.create:
+                progress.setVisibility(View.GONE);
                 regiter();
 //
         }
