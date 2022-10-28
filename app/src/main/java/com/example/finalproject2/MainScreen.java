@@ -49,9 +49,9 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
             case R.id.Admin:
                 startActivity(new Intent(this,LoginScreenAdmin.class));
                 break;
-//            case R.id.About:
-//                startActivity(new Intent(this,RegisterScreenUser.class));
-//                break;
+            case R.id.About:
+                startActivity(new Intent(this, userPanel.class));
+                break;
         }
     }
 }
