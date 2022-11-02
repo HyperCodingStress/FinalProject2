@@ -50,7 +50,7 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
                 startActivity(new Intent(this,LoginScreenAdmin.class));
                 break;
             case R.id.About:
-                startActivity(new Intent(this, adminPanel.class));
+                startActivity(new Intent(this, about.class));
                 break;
         }
     }

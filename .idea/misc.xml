@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2225" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/drawable/rounded.xml" value="0.226" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_about.xml" value="0.2" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_add_item.xml" value="0.22864583333333333" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_admin_data.xml" value="0.22864583333333333" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_admin_panel.xml" value="0.23229166666666667" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_admin_product.xml" value="0.22864583333333333" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_all_product.xml" value="0.23229166666666667" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_create_item.xml" value="0.21458333333333332" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen.xml" value="0.2" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen_admin.xml" value="0.23229166666666667" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen_staff.xml" value="0.21822916666666667" />

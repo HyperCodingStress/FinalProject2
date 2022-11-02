@@ -125,6 +125,7 @@ public class adminAdapter extends FirebaseRecyclerAdapter<MainModel,adminAdapter
                 builder.show();
             }
         });
+
     }
 
     @NonNull

@@ -24,7 +24,7 @@ public class adminPanel extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.daftarStaff:
-                startActivity(new Intent(this,LoginScreenAdmin.class));
+                startActivity(new Intent(this,RegisterScreenStaff.class));
                 break;
             case R.id.crudData:
                 startActivity(new Intent(this, AdminData.class));

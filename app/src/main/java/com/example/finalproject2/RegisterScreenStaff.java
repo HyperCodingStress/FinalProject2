@@ -98,7 +98,7 @@ public class RegisterScreenStaff extends AppCompatActivity implements View.OnCli
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
-                            DataUser user = new DataUser(nama,pass1,emails,"staff");
+                            DataUser user = new DataUser(nama,"0800000000",pass1,emails,"staff");
                             String uId = task.getResult().getUser().getUid();
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(uId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
