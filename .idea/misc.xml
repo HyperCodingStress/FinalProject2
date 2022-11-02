@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/drawable/rounded.xml" value="0.226" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_admin_data.xml" value="0.22864583333333333" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_admin_panel.xml" value="0.23229166666666667" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_admin_product.xml" value="0.22864583333333333" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_all_product.xml" value="0.23229166666666667" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen.xml" value="0.2" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_login_screen_admin.xml" value="0.23229166666666667" />
@@ -14,11 +17,13 @@
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_register_screen_user.xml" value="0.176" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_register_screen_user2.xml" value="0.11296859169199595" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/activity_user_panel.xml" value="0.22074468085106383" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/adminitem.xml" value="0.23125" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/content_all_product.xml" value="0.23229166666666667" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/content_register_screen_user.xml" value="0.72" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/fragment_first.xml" value="0.11296859169199595" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/fragment_second.xml" value="0.2" />
         <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/singleitem.xml" value="0.264" />
+        <entry key="..\:/KODINGAN/AndroidStudio/FinalProject2/app/src/main/res/layout/updatepop.xml" value="0.23229166666666667" />
       </map>
     </option>
   </component>

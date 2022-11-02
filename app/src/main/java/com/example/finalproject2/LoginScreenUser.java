@@ -60,6 +60,12 @@ public class LoginScreenUser extends AppCompatActivity implements View.OnClickLi
         String email = emailUser.getText().toString().trim();
         String password = passUser.getText().toString().trim();
 
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            emailUser.setError("Masukan Email Yang Valid");
+            emailUser.requestFocus();
+            return;
+        }
+
         if(email.isEmpty()){
             emailUser.setError("Email Tidak Boleh Kosong");
             emailUser.requestFocus();
@@ -91,11 +97,11 @@ public class LoginScreenUser extends AppCompatActivity implements View.OnClickLi
                                         if(status.equals("user")){
                                             back();
                                         }else{
-                                            Toast.makeText(LoginScreenUser.this,"Bukan User",Toast.LENGTH_LONG);
+                                            Toast.makeText(LoginScreenUser.this,"Bukan User",Toast.LENGTH_LONG).show();
                                         }
 
                                     } else {
-                                        Log.i("Result Sigin","Failed");
+                                        Toast.makeText(LoginScreenUser.this,"Salah Password Atau Username",Toast.LENGTH_LONG).show();
                                     }
                                 }
 
@@ -116,6 +122,6 @@ public class LoginScreenUser extends AppCompatActivity implements View.OnClickLi
 
     }
     private void back() {
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this,userPanel.class));
     }
 }
