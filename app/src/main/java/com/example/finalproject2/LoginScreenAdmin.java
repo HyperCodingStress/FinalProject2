@@ -28,6 +28,7 @@ public class LoginScreenAdmin extends AppCompatActivity implements View.OnClickL
     private EditText emailUser, passUser;
     private Button button;
     private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +36,9 @@ public class LoginScreenAdmin extends AppCompatActivity implements View.OnClickL
         emailUser = (EditText) findViewById(R.id.idAdmin);
         passUser = (EditText) findViewById(R.id.passAdmin);
         button = (Button) findViewById(R.id.LoginAdmin);
+        progressBar = (ProgressBar) findViewById(R.id.waitAdmin);
         button.setOnClickListener(this);
-
+        progressBar.setVisibility(View.GONE);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -68,6 +70,7 @@ public class LoginScreenAdmin extends AppCompatActivity implements View.OnClickL
             passUser.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
         System.out.println(email + "\n" + password);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(LoginScreenAdmin.this, new OnCompleteListener<AuthResult>() {
@@ -87,6 +90,7 @@ public class LoginScreenAdmin extends AppCompatActivity implements View.OnClickL
                                         String status = user.getRole().toString();
                                         if (status.equals("admin")) {
                                             back();
+                                            progressBar.setVisibility(View.GONE);
                                         } else {
                                             Toast.makeText(LoginScreenAdmin.this, "Bukan Admin", Toast.LENGTH_LONG).show();
                                         }

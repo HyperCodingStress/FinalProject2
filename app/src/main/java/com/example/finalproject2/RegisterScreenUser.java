@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RegisterScreenUser extends AppCompatActivity implements View.OnClickListener{
 
-    private EditText name,Phone,password,email;
+    private EditText name,Phone,password,email,cpass;
     private FirebaseAuth mAuth;
     private Button create;
     private ProgressBar progress;
@@ -40,6 +40,7 @@ public class RegisterScreenUser extends AppCompatActivity implements View.OnClic
         password = (EditText) findViewById(R.id.password);
         email = (EditText) findViewById(R.id.Email);
         create = (Button) findViewById(R.id.create);
+        cpass = (EditText) findViewById(R.id.confirm_pass);
         progress = (ProgressBar) findViewById(R.id.progressBarUser);
         progress.setVisibility(View.GONE);
         create.setOnClickListener(this);
@@ -65,7 +66,7 @@ public class RegisterScreenUser extends AppCompatActivity implements View.OnClic
         String nomor = Phone.getText().toString().trim();
         String pass = password.getText().toString().trim();
         String emails =  email.getText().toString().trim();
-
+        String cPass = cpass.getText().toString().trim();
         if(nama.isEmpty()){
             name.setError("Nama Tidak Boleh Kosong");
             name.requestFocus();
@@ -89,6 +90,11 @@ public class RegisterScreenUser extends AppCompatActivity implements View.OnClic
         if(password.length() < 6){
             password.setError("Password minimal lebih dari 6");
             password.requestFocus();
+            return;
+        }
+        if(!cPass.equals(password)){
+            cpass.setError("Password tidak boleh beda");
+            cpass.requestFocus();
             return;
         }
         if(nama.length() < 4){
