@@ -1,6 +1,6 @@
 # FinalProject2
 
-git clone : https://github.com/HyperCodingStress/FinalProject2/new/master?readme=1
+git clone : https://github.com/HyperCodingStress/FinalProject2
 
 Login Guide :
   1) Admin, email : admin@gmail.com & password :admin123
